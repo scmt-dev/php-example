@@ -92,7 +92,7 @@
              ?>
 
             <!-- Sign In Option -->
-            <p class="text-center text-gray-500 text-sm">Have an account? <a href="signin.html" class="text-green-600 font-semibold">Sign In</a></p>
+            <p class="text-center text-gray-500 text-sm">Have an account? <a href="login.php" class="text-green-600 font-semibold">Sign In</a></p>
 
             <!-- Terms and Data Policy -->
             <p class="text-center text-gray-400 text-sm mt-4">By clicking Register, you agree to our <a href="#" class="text-green-600">Terms and Data Policy.</a></p>
