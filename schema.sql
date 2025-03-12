@@ -52,3 +52,20 @@ create table if not exists friends (
     foreign key (friend_user_id) references users(id),
     foreign key (user_id) references users(id)
 );
+
+create table tasks(
+    id int primary key auto_increment,
+    title text not null,
+    done boolean default 0
+)
+
+
+create table customers(
+    id int primary key auto_increment,
+    sex varchar(1) not null,
+    name varchar(60) not null,
+    phone varchar(20) not null,
+    email varchar(60) null,
+    address varchar(255) null,
+    created_at timestamp default CURRENT_TIMESTAMP
+)
