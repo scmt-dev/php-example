@@ -68,4 +68,42 @@ create table customers(
     email varchar(60) null,
     address varchar(255) null,
     created_at timestamp default CURRENT_TIMESTAMP
-)
+);
+
+create table contracts (
+    id int primary key auto_increment,
+    title varchar(255) not null,
+    detail text null,
+    file varchar(255) null,
+    customer_id int not null,
+    start_date date null,
+    expiry_date date null,
+    status varchar(255) null default 'pending', -- pending, active, expired, cancelled
+    created_at timestamp default CURRENT_TIMESTAMP,
+    updated_at timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    foreign key (customer_id) references customers(id)
+);
+
+
+
+CREATE TABLE accounts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    account_number VARCHAR(20) UNIQUE NOT NULL,
+    account_name VARCHAR(100) NOT NULL,
+    balance DECIMAL(18,2) NOT NULL DEFAULT 0.00,
+    currency VARCHAR(3) NOT NULL DEFAULT 'LAK',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    account_id INT NOT NULL,
+    type ENUM('deposit', 'withdraw', 'transfer_in', 'transfer_out', 'fee', 'penalty', 'interest', 'other') NOT NULL,
+    amount DECIMAL(18,2) NOT NULL CHECK (amount > 0),
+    description VARCHAR(255) DEFAULT NULL,
+    related_account_id INT DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (account_id) REFERENCES accounts(id),
+    FOREIGN KEY (related_account_id) REFERENCES accounts(id)
+);
