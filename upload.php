@@ -17,7 +17,7 @@
         <main class="flex-1 p-8 overflow-auto">
             <!-- Header -->
             <?php 
-                include_once 'doc-documents.php';
+                include_once 'doc-upload.php';
             ?>
         </main>
     </div>
