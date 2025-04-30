@@ -107,3 +107,14 @@ CREATE TABLE transactions (
     FOREIGN KEY (account_id) REFERENCES accounts(id),
     FOREIGN KEY (related_account_id) REFERENCES accounts(id)
 );
+
+
+CREATE TABLE documents (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    file_name VARCHAR(255) NOT NULL,
+    file_path VARCHAR(255) NOT NULL,
+    file_type VARCHAR(50),
+    file_size float,
+    uploaded_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
