@@ -1,6 +1,6 @@
 <?php 
 // open mode debug
-error_reporting(1);
+// error_reporting(1);
 //                ip server    |user fb |pwd   |database name 
 $db = new mysqli('localhost', 'root', 'root', 'bank');
 // check error connection
